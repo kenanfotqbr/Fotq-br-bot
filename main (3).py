@@ -1075,10 +1075,11 @@ def handle_get_answer(call):
 
 def run_web():
     """Запуск веб-сервера для UptimeRobot"""
+    port = int(os.environ.get('PORT', 5000))
     while True:
         try:
-            print("🌐 Веб-сервер запущен на порту 5000")
-            app.run(host='0.0.0.0', port=5000, debug=False, threaded=True)
+            print(f"🌐 Веб-сервер запущен на порту {port}")
+            app.run(host='0.0.0.0', port=port, debug=False, threaded=True)
         except Exception as e:
             print(f"❌ Ошибка веб-сервера: {e}")
             time.sleep(5)
